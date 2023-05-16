@@ -1,1 +1,8 @@
-
+[Task 1 | Web Scraping] Please write a piece of code to scrape and summarize the userID, userName, pinned Tweet ID, and creation date of your own account with Twitter Official API										
+[Task 2 | Tweet Labeling] Please label the following 10 tweets
+1. Determine if a tweet contains misinformation. If yes, please add a short explanation in the note column.										
+2. Determine if a tweet is news or opinion.										
+3. If a tweet is news, determine if it's breaking news or normal news. If a tweet is opinion, determine if it's pro-life or pro-choice.										
+Note: a big part of the task is for you to come up with your own definition for misinformation and opinions vs news using common sense and domain expertise. Bonus point if you can relate your approach to established frameworks in economics and political science. Be sure to cite appropriately.										
+[Task 3 | Data Munging and Visualization] Quantify the network and engagement overlap between influencers										
+							
