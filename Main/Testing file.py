@@ -7,6 +7,8 @@ copy of sample code will speed up the learning process.
 from requests_oauthlib import OAuth1Session
 import os
 import json
+import pandas as pd
+import requests
 
 # In your terminal please set your environment variables by running the following lines of code.
 # export 'CONSUMER_KEY'='<9G7CGyyHZiwqTXLfh9HsMIcuQ>'
@@ -79,3 +81,17 @@ print("Response code: {}".format(response.status_code))
 json_response = response.json()
 
 print(json.dumps(json_response, indent=4, sort_keys=True))
+
+
+# The following code will do a seperate data extraction with bearer token
+# Set up bearer token credentials 
+os.environ["BEARER_TOKEN"] = "AAAAAAAAAAAAAAAAAAAAAPoSngEAAAAAZ6XTXf%2FVHu1%2Bu%2BLDSLaaVYxZ5fI%3DPsfoAw87FDsy6dCZQOEYUTwU2zzywn25iN6Sfup4maM6YXdDVq"
+bearer_token = os.environ.get('BEARER_TOKEN')
+headers = {"Authorization": "Bearer {}".format(bearer_token)}
+# make request to endpoint using request package
+url = "https://api.twitter.com/2/tweets/search/recent?query=from:TwitterDev"
+response = requests.request("GET", url, headers=headers).json()
+print(response)
+# create csv file
+df = pd.DataFrame(response['data'])
+df.to_csv('response_python.csv')
